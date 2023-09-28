@@ -12,7 +12,7 @@ Dependencies outside composer: SQLite3
 
 % vendor/bin/phpunit tests --testdox
 
-% php src/Question[#].php**
+% php src/Question[#].php
 </pre>
 ### Other work I have done:
 
