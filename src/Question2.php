@@ -55,8 +55,7 @@ class Question2 {
                     }
                     $i++;  // Consume '>'
                     if (empty($stack) || end($stack) != $tag_name) {
-                        echo "Error: Mismatched closing tag: $tag_name\n";
-                        return;
+                        return "Error: Mismatched closing tag: $tag_name\n";
                     }
                     array_pop($stack);  // Pop the corresponding open tag
                     $output[] = str_repeat("  ", count($stack)) . "</$tag_name>\n";
@@ -84,21 +83,15 @@ class Question2 {
         }
 
         if (!empty($stack)) {
-            echo "Error: Unclosed tag(s): " . implode(', ', $stack) . "\n";
-            return;
+            return "Error: Unclosed tag(s): " . implode(', ', $stack) . "\n";
         }
 
         return implode('', $output);
-        // print_r($output);
-        //$this->output =  implode('', $output);
-        //print_r($this->output);
-        // return implode('',$output);
-        //fwrite(STDOUT, print_r($output, TRUE));
-        //echo $this->output;
-        //return $this->output;
     }
 }
 
 // var_dump(new Question2("<html><div></div></div></html>"));
-new Question2("<html><div></div></div></html>");
+// $obj = new Question2("<html><body><div><a>hello</a></div></body></html>");
+// echo $obj->output;
+
 ?>

@@ -8,48 +8,28 @@ use PHPUnit\Framework\TestCase;
 class DOMParserTest extends TestCase
 {
 
-    public function testExpectFooActualFoo()
+    public function testError1()
     {
         $x = new App\Question2("<html><div></div></div></html>");
-        $this->assertSame('Error: Mismatched closing tag: div', $x->output);
+        $this->assertSame('Error: Mismatched closing tag: div', trim($x->output));
     }
 
-    // public function testExpectBarActualBaz()
-    // {
-    //     $this->expectOutputString('bar');
-    //     print 'baz';
-    // }
-    // /**
-    //  * @dataProvider provider
-    //  */
-    // public function testMethod($expectedResult, $input)
-    // {
+    public function testSuccess() //normally loading data from a file would be better here (multi line strings ehh)
+    { 
+        $x = new App\Question2("<html><body><div><a>hello</a></div></body></html>");
+        $str = 
+<<<EOD
+<html>
+  <body>
+    <div>
+      <a>
+        hello
+      </a>
+    </div>
+  </body>
+</html>
+EOD;
+                $this->assertSame($str, trim($x->output));
 
-    //     //$x = new App\Question2("<html><div></div></div></html>");
-
-
-    //     // fwrite(STDOUT, print_r($x, TRUE));
-    //     //print_r($x);
-    //     // $this->asserterror
-    //     $this->assertSame($expectedResult,$input);
-    // }
-
-
-    // public static function provider()
-    // {
-    //     return [
-    //         'return error' => [
-    //             new App\Question2("<html><div></div></div></html>"),
-    //             'Error: Mismatched closing tag: div',
-    //         ]
-    //     ];
-    // }
-    // public static function provider()
-    // {
-    //     // return [];
-    //     return [
-    //         'my named data' => [true],
-    //         'my data'       => [true]
-    //     ];
-    // }
+    }
 }

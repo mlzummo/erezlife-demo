@@ -6,7 +6,8 @@ class Question1 {
 
     /*
         1) I should have used a light-weight framework like lumen. 
-            This would have provided tighter coupling for generating dummy data for tests and abstracting tables to models and ORM.
+           This would have provided tighter coupling for generating dummy data for tests and abstracting tables to models and ORM.
+           I would not normally do all this logic in __construct.
     */
     function __construct() {
 
@@ -32,14 +33,14 @@ class Question1 {
         $stmt->bindValue(':student_id', $studentId, SQLITE3_INTEGER);
         $stmt->execute();
     
-
+        // the sql statement tested for
         $stmt = $db->prepare('SELECT student.id, student.name, count(application.id) FROM student LEFT JOIN application ON student.id = application.student_id GROUP BY student.id');
             
         $result = $stmt->execute();
         while($r = $result->fetchArray(SQLITE3_ASSOC)){
             $arr[] = $r;
         }
-       return $arr;
+        print_r($arr);
     }
 }
 
