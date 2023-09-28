@@ -6,14 +6,14 @@ There is only  **1**  unit test:  **Question2**
 I am aware of the the design decisions, pitfalls and short-comings. This is after-all just a quick test.
 
 Dependencies outside composer: SQLite3
-
+<pre>
 % composer install
 % composer update
 
 % vendor/bin/phpunit tests --testdox
 
 % php src/Question[#].php**
-
+</pre>
 ### Other work I have done:
 
 [https://github.com/search?q=repo%3Ahpcc-systems%2FVisualization+mzummo&type=commits](https://github.com/search?q=repo%3Ahpcc-systems%2FVisualization+mzummo&type=commits)
